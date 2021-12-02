@@ -3,11 +3,19 @@ package com.developer.api.entidades;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Link implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@Column(nullable = false)
 	private String urlOriginal;
+	@Column(nullable = false)
 	private String urlResumida;
 	
 	public Link() {
