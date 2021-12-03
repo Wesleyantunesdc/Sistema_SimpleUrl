@@ -1,0 +1,34 @@
+<section>
+    <div class="box-esquerda">
+        <div class="box-interna-esquerda">
+            <h1>Seja bem-vindo ao Simple Url </h1>
+            <p>O Encurtador é uma ferramenta grátis para encurtar links de redes sociais e sites mais acessados da Internet. Use o nosso Encurtador de URL para diminuir uma url longa e gerar um link curto. </p>
+        </div>
+    </div>
+    <div class="box-direita">
+        <div class="box-interna-direita">
+            <div class="imagem">
+                <img src="../assets/logo.png">
+            </div>
+            <h1>Cole a url que deseja encurtar</h1>
+            <form [formGroup]="form">
+                <mat-form-field class="campo_entrada" appearance="fill" style="width: 100%;">
+                    <mat-label>Link Original</mat-label>
+                    <input matInput formControlName="urlOriginal">
+                </mat-form-field>
+                <div style="width: 100%; margin-bottom: 10px;" *ngIf="mostrarResultado">
+                    <mat-card>
+                        {{linkResultado}}
+                        <button mat-icon-button>
+                            <mat-icon (click)="copiar()">content_copy</mat-icon>
+                        </button>
+                    </mat-card>
+                </div>
+            </form>
+            <div class="botao">
+                <button mat-button (click)="gerarLink()" [disabled]="form.invalid" class="botao1">Gerar link curto</button>
+                <button mat-button (click)="zerar()" *ngIf="mostrarResultado" class="botao2">Gerar novamente</button>
+            </div>
+        </div>
+    </div>
+</section>

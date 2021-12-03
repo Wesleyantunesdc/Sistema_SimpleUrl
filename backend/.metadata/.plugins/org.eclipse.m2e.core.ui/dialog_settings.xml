@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Wesley.Antunes\Desktop\projetos\Sistema_SimpleUrl-master"/>
 			<item value="D:\projetos\simple_url\backend"/>
 		</list>
 		<list key="projectNameTemplate">
