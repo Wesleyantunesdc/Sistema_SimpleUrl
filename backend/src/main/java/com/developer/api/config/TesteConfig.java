@@ -19,9 +19,11 @@ public class TesteConfig  implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		Link link = new Link("www.teste./dasdsa/dasasdas", "endereco.com");
-		Link link2 = new Link("www.desenv./dasdsa/dasasdas", "endereco2.com");
-		linkRepositorio.saveAll(Arrays.asList(link, link2));	
+		Link link = new Link("1", "https://www.youtube.com/watch?v=AzbydpkeHtk");
+		Link link2 = new Link("2", "https://www.youtube.com/watch?v=Ywq6FMLbWH4&list=RDApXoWvfEYVU&index=13");
+		Link link3 = new Link("3", "https://www.udemy.com/course/java-curso-completo/learn/lecture/16124057#overview");
+		Link link4 = new Link("4", "https://id.heroku.com/login");
+		linkRepositorio.saveAll(Arrays.asList(link, link2, link3, link4));	
 	}
 	
 	

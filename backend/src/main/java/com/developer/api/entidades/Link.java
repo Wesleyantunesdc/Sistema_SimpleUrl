@@ -14,17 +14,18 @@ public class Link implements Serializable{
 	
 	@Id
 	@Column(nullable = false)
+	private String codigo;
+	@Column(nullable = false, length = 1000)
 	private String urlOriginal;
-	@Column(nullable = false)
-	private String urlResumida;
+
 	
 	public Link() {
 	}
 
-	public Link(String urlOriginal, String urlResumida) {
+	public Link(String codigo, String urlOriginal) {
 		super();
 		this.urlOriginal = urlOriginal;
-		this.urlResumida = urlResumida;
+		this.codigo = codigo;
 	}
 
 	public String getUrlOriginal() {
@@ -35,17 +36,17 @@ public class Link implements Serializable{
 		this.urlOriginal = urlOriginal;
 	}
 
-	public String getUrlResumida() {
-		return urlResumida;
+	public String getCodigo() {
+		return codigo;
 	}
 
-	public void setUrlResumida(String urlResumida) {
-		this.urlResumida = urlResumida;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(urlOriginal, urlResumida);
+		return Objects.hash(codigo, urlOriginal);
 	}
 
 	@Override
@@ -57,6 +58,6 @@ public class Link implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Link other = (Link) obj;
-		return Objects.equals(urlOriginal, other.urlOriginal) && Objects.equals(urlResumida, other.urlResumida);
+		return Objects.equals(codigo, other.codigo) && Objects.equals(urlOriginal, other.urlOriginal);
 	}
 }
