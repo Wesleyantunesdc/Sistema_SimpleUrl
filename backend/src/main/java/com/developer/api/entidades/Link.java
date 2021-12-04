@@ -13,7 +13,7 @@ public class Link implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(nullable = false)
+	@Column(nullable = false, length = 1000)
 	private String codigo;
 	@Column(nullable = false, length = 1000)
 	private String urlOriginal;

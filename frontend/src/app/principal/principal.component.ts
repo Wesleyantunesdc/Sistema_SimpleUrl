@@ -2,6 +2,7 @@ import { Link } from '../modelo/Link';
 import { Component, OnInit } from '@angular/core';
 import { LinkService } from '../servicos/link.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-principal',
@@ -20,6 +21,7 @@ export class PrincipalComponent implements OnInit {
   public link: Link = new Link();
   public mostrarResultado: boolean = false
   public linkResultado: any
+  public carregando: boolean = false
 
   ngOnInit(): void {
   }
@@ -28,10 +30,12 @@ export class PrincipalComponent implements OnInit {
     this.form.markAllAsTouched()
     if (this.form.invalid) return;
     this.link = new Link(this.form.controls['urlOriginal'].value)
+    this.carregando = true
     this.linkServico.gerarLink(this.link).subscribe(response => {
-      this.linkServico.mostrarMensagem("Link curto gerado com sucesso!");
-      this.linkResultado = response.codigo
+      this.linkServico.mostrarMensagem("Link gerado com sucesso!", 3000);
+      this.linkResultado = environment.baseUrl+"/"+response.codigo
       this.mostrarResultado = true;
+      this.carregando = false
     })
   }
 
@@ -55,6 +59,7 @@ export class PrincipalComponent implements OnInit {
       textarea.select();
       try {
          document.execCommand("copy");
+         this.linkServico.mostrarMensagem("Link Copiado",3000);
       }
       catch (ex) {
         console.warn("Copy to clipboard failed.", ex);

@@ -3,7 +3,7 @@ import { Link } from '../modelo/Link';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, empty, Observable } from 'rxjs';
 
 @Injectable()
 export class LinkService {
@@ -15,14 +15,19 @@ export class LinkService {
     private http: HttpClient) { }
 
   gerarLink(link: Link): Observable<Link> {
-    return this.http.post<Link>(this.baseUrl, link);
+    return this.http.post<Link>(this.baseUrl, link).
+      pipe(
+        catchError(error => {
+        this.mostrarMensagem("Erro ao gerar link, tente novamente mais tarde!", 6000);
+        return empty()
+      }));
   }
 
-  mostrarMensagem(msg: string) {
+  mostrarMensagem(msg: string, tempo: number ) {
     this.snackBar.open(msg, '', {
-      duration: 4000,
+      duration: tempo,
       horizontalPosition: "right",
-      verticalPosition: "bottom"
+      verticalPosition: "bottom",
     })
   }
 }

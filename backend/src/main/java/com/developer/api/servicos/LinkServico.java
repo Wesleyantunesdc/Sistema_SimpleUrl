@@ -39,6 +39,6 @@ public class LinkServico {
 	
 	private void gerarLinkCurto(Link link) {
 		String uuid = UUID.randomUUID().toString().replace("-", "");
-		link.setCodigo(uuid);
+		link.setCodigo(uuid.substring(0,8));
 	}
 }

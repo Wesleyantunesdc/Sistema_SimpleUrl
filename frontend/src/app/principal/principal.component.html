@@ -1,3 +1,4 @@
+<mat-progress-bar mode="query" *ngIf="carregando"></mat-progress-bar>
 <section>
     <div class="box-esquerda">
         <div class="box-interna-esquerda">
@@ -16,17 +17,18 @@
                     <mat-label>Link Original</mat-label>
                     <input matInput formControlName="urlOriginal">
                 </mat-form-field>
-                <div style="width: 100%; margin-bottom: 10px;" *ngIf="mostrarResultado">
+                <div class = "resultado" *ngIf="mostrarResultado">
                     <mat-card>
-                        {{linkResultado}}
-                        <button mat-icon-button>
-                            <mat-icon (click)="copiar()">content_copy</mat-icon>
-                        </button>
+                        <p>{{linkResultado}}
+                            <mat-icon (click)="copiar()">
+                                content_copy
+                            </mat-icon>
+                        </p>
                     </mat-card>
                 </div>
             </form>
             <div class="botao">
-                <button mat-button (click)="gerarLink()" [disabled]="form.invalid" class="botao1">Gerar link curto</button>
+                <button mat-button (click)="gerarLink()" [disabled]="form.invalid || mostrarResultado" class="botao1">Gerar link curto</button>
                 <button mat-button (click)="zerar()" *ngIf="mostrarResultado" class="botao2">Gerar novamente</button>
             </div>
         </div>

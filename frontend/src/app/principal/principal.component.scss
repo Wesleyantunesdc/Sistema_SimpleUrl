@@ -73,6 +73,113 @@ section {
                     margin-right: 10px;
                 }
             }
+            .resultado{
+                width: 100%;
+                margin-bottom: 10px;
+                p{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                mat-icon :hover{
+                    background-color: #bb5757;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px){
+    section {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 200vh;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Karla', sans-serif;
+        .box-esquerda {
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, #76CAD4, #57BB90);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .box-interna-esquerda {
+                width: 60%;
+                color: white;
+                h1 {
+                    text-align: center;
+                    font-size: 24pt;
+                    margin-bottom: 10px;
+                }
+                p {
+                    text-align: center;
+                    font-size: 14pt;
+                }
+            }
+        }
+        .box-direita {
+            width: 100%;
+            height: 100%;
+            background-color: #F8F6EB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .box-interna-direita {
+                width: 80%;
+                display: flex;
+                // background-color: hotpink;
+                flex-direction: column;
+                h1 {
+                    text-align: center;
+                    font-size: 26pt;
+                    margin-bottom: 10px;
+                    color: #76CAD4;
+                }
+                .imagem {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    img {
+                        max-height: 300px;
+                        max-width: 300px;
+                        margin-bottom: 30px;
+                    }
+                }
+                .campo_entrada {
+                    margin-top: 30px;
+                }
+                .botao {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    color: white;
+                    .botao1 {
+                        background-image: linear-gradient(to right, #5dd1b4, #57BB90);
+                        padding: 5px 20px;
+                        font-size: 10pt;
+                    }
+                    .botao2 {
+                        background-image: linear-gradient(to right, #00e7c8, #04a1fc);
+                        padding: 5px;
+                        font-size: 10pt;
+                        margin-right: 10px;
+                    }
+                }
+            }
+            .resultado{
+                width: 100%;
+                margin-bottom: 10px;
+                p{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
         }
     }
 }
